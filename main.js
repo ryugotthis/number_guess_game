@@ -41,12 +41,11 @@ function play() {
         reaction.textContent = 'Down!!';
       } else if (inputNumValue < randNum) {
         reaction.textContent = 'Up!!';
-      } else if (inputNumValue == randNum) {
+      } else {
         reaction.textContent = '맞췄습니다!';
       }
     }
   } else {
-    if (inputNumValue < 1 || inputNumValue > 100) {
       reaction.textContent = '1~100 사이의 값을 입력해주세요';
     }
   }
