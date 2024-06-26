@@ -46,9 +46,9 @@ function play() {
       }
     }
   } else {
-      reaction.textContent = '1~100 사이의 값을 입력해주세요';
-    }
+    reaction.textContent = '1~100 사이의 값을 입력해주세요';
   }
+
   chance.textContent = `남은기회:${tryCount}번`;
   if (tryCount < 1) {
     playButton.disabled = true;
