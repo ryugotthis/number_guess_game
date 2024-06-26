@@ -29,7 +29,6 @@ function pickNum() {
 function play() {
   let inputNumValue = inputNum.value;
 
-  histNum.push(inputNumValue);
   console.log(histNum);
 
   if (inputNumValue >= 0 && inputNumValue <= 100) {
@@ -43,8 +42,10 @@ function play() {
         reaction.textContent = 'Up!!';
       } else {
         reaction.textContent = '맞췄습니다!';
+        playButton.disabled = true;
       }
     }
+    histNum.push(inputNumValue);
   } else {
     reaction.textContent = '1~100 사이의 값을 입력해주세요';
   }
@@ -58,8 +59,8 @@ function play() {
 function reset() {
   playButton.disabled = false;
   inputNum.value = '';
-  tryNum = 5;
-  chance.textContent = `남은기회:${tryNum}번`;
+  tryCount = 5;
+  chance.textContent = `남은기회:${tryCount}번`;
   histNum = [];
 
   pickNum();
