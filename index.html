@@ -4,15 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>숫자 맞추기</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>숫자 맞추기 게임</h1>
-    <div id="reaction">결과가 나온다!</div>
-    <input type="number" id="inputNum" />
-    <button id="playButton">GO!</button>
-    <button id="resetButton">Reset</button>
-    <div id="chance">남은기회:5번</div>
+    <div class="container">
+      <h1 class="page-pretitle">류수빈</h1>
+      <h1 class="page-title">행운의 주인공은 누구?!</h1>
+      <h1 class="page-subtitle">
+        <span id="yellow-text">도전!</span> 숫자맞추기
+      </h1>
+
+      <img
+        src="
+      https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnVqcWNhcXhyM2R1YmliaWhiODcwemk5OGpoenZlcHFlN2czMXQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7eAvzJ0SBBzHy/giphy.webp"
+        class="main-img"
+      />
+      <h1 id="reaction">결과가 나온다!</h1>
+
+      <div id="resultArea">
+        <div class="answerArea">
+          <input
+            type="number"
+            class="input-box"
+            id="inputNum"
+            placeholder="1부터 100까지 숫자를 입력"
+          />
+          <h2 class="text-chance" id="chance">남은기회:5번</h2>
+        </div>
+        <div class="btnArea">
+          <button class="btn btn-play" id="playButton">GO!</button>
+          <button class="btn btn-reset" id="resetButton">Reset</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-share">공유하기</button>
     <script src="main.js" url></script>
   </body>
 </html>

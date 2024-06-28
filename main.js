@@ -15,12 +15,17 @@ let randNum = 0;
 let inputNum = document.getElementById('inputNum');
 let reaction = document.getElementById('reaction');
 let playButton = document.getElementById('playButton');
+let resetButton = document.getElementById('resetButton');
+let resultAreaImg = document.querySelector('.main-img');
 let tryCount = 5;
 let chance = document.getElementById('chance');
 let histNum = [];
 
 playButton.addEventListener('click', play);
 resetButton.addEventListener('click', reset);
+focusInput = inputNum.addEventListener('focus', function () {
+  inputNum.value = '';
+}); //focusin
 
 function pickNum() {
   randNum = Math.floor(Math.random() * 100) + 1;
@@ -31,16 +36,22 @@ function play() {
 
   console.log(histNum);
 
-  if (inputNumValue >= 0 && inputNumValue <= 100) {
+  if (inputNumValue > 0 && inputNumValue <= 100) {
     if (histNum.includes(inputNumValue)) {
       reaction.textContent = '이미 입력한 숫자입니다';
     } else {
       tryCount--;
+
       if (inputNumValue > randNum) {
+        resultAreaImg.src = 'img/down.webp';
+
         reaction.textContent = 'Down!!';
       } else if (inputNumValue < randNum) {
+        resultAreaImg.src = 'img/up.webp';
+
         reaction.textContent = 'Up!!';
       } else {
+        resultAreaImg.src = 'img/success.webp';
         reaction.textContent = '맞췄습니다!';
         playButton.disabled = true;
       }
@@ -53,15 +64,20 @@ function play() {
   chance.textContent = `남은기회:${tryCount}번`;
   if (tryCount < 1) {
     playButton.disabled = true;
+    resultAreaImg.src = 'img/fail.webp';
+    reaction.textContent = '실패!!';
   }
 }
 
 function reset() {
+  resultAreaImg.src =
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnVqcWNhcXhyM2R1YmliaWhiODcwemk5OGpoenZlcHFlN2czMXQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7eAvzJ0SBBzHy/giphy.webp';
   playButton.disabled = false;
   inputNum.value = '';
   tryCount = 5;
   chance.textContent = `남은기회:${tryCount}번`;
   histNum = [];
+  reaction.textContent = '다시 도전!';
 
   pickNum();
 }
