@@ -48,7 +48,6 @@ function play() {
         reaction.textContent = 'Down!!';
       } else if (inputNumValue < randNum) {
         resultAreaImg.src = 'img/up.webp';
-
         reaction.textContent = 'Up!!';
       } else {
         resultAreaImg.src = 'img/success.webp';
