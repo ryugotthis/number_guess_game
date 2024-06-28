@@ -1,1 +1,1 @@
-https://ryugotthis-number-guess-game.netlify.app/
+https://master--ryugotthis-number-guess-game.netlify.app/
