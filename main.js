@@ -22,6 +22,7 @@ let tryCount = 3; // 남은 기회
 let histNum = []; // 사용자가 입력한 숫자들
 let answerNumber = document.getElementById('answerNumber');
 let hist = document.getElementById('hist');
+let ongoing = true; // 게임 진행중인가
 
 playButton.addEventListener('click', play);
 resetButton.addEventListener('click', reset);
@@ -60,6 +61,7 @@ function play() {
         reaction.textContent = '맞췄습니다!';
         hist.textContent = `시도한 숫자: ${[...new Set(histNum)]}`;
         playButton.disabled = true;
+        ongoing = false;
       }
     }
   } else {
@@ -67,7 +69,7 @@ function play() {
   }
 
   chance.textContent = `남은기회:${tryCount}번`;
-  if (tryCount < 1) {
+  if (tryCount < 1 && ongoing == true) {
     playButton.disabled = true;
     resultAreaImg.src = 'img/fail.webp';
     reaction.textContent = '실패!!';
