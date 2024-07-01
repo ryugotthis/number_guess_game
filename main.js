@@ -18,8 +18,10 @@ let resetButton = document.getElementById('resetButton');
 let shareButton = document.getElementById('shareButton');
 let resultAreaImg = document.querySelector('.main-img');
 let chance = document.getElementById('chance');
-let tryCount = 5; // 남은 기회
+let tryCount = 3; // 남은 기회
 let histNum = []; // 사용자가 입력한 숫자들
+let answerNumber = document.getElementById('answerNumber');
+let hist = document.getElementById('hist');
 
 playButton.addEventListener('click', play);
 resetButton.addEventListener('click', reset);
@@ -32,6 +34,7 @@ function pickNum() {
   // 랜덤 숫자 뽑기
   randNum = Math.floor(Math.random() * 100) + 1;
   console.log(randNum);
+  answerNumber.textContent = `(정답${randNum})`;
 }
 function play() {
   // 숫자 추측하기
@@ -55,6 +58,7 @@ function play() {
       } else {
         resultAreaImg.src = 'img/success.webp';
         reaction.textContent = '맞췄습니다!';
+        hist.textContent = `시도한 숫자: ${[...new Set(histNum)]}`;
         playButton.disabled = true;
       }
     }
@@ -68,6 +72,7 @@ function play() {
     playButton.disabled = true;
     resultAreaImg.src = 'img/fail.webp';
     reaction.textContent = '실패!!';
+    hist.textContent = `시도한 숫자: ${[...new Set(histNum)]}`;
   }
 }
 
@@ -77,9 +82,10 @@ function reset() {
     'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnVqcWNhcXhyM2R1YmliaWhiODcwemk5OGpoenZlcHFlN2czMXQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7eAvzJ0SBBzHy/giphy.webp';
   playButton.disabled = false;
   inputNum.value = '';
-  tryCount = 5;
+  tryCount = 3;
   chance.textContent = `남은기회:${tryCount}번`;
   histNum = [];
+  hist.textContent = '';
   reaction.textContent = '다시 도전!';
 
   pickNum();

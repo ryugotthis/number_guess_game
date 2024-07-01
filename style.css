@@ -67,6 +67,9 @@ body {
   align-items: center;
   flex-direction: row;
 }
+#answerNumber {
+  font-size: 3vw;
+}
 .answerArea {
   flex-direction: column;
 }
@@ -88,6 +91,9 @@ body {
   font-size: 3vw;
   padding-top: 3%;
   color: #f1ee28;
+}
+#hist {
+  font-size: 2vw;
 }
 .btn {
   height: 50px;
@@ -156,9 +162,14 @@ body {
     font-size: 6vw;
   }
   #resultArea {
-    margin-left: 4vw;
+  }
+  #answerNumber {
+    margin: -1% 0 -5% 0;
   }
   .answerArea {
+  }
+  #hist {
+    font-size: 4vw;
   }
   .input-box {
     width: 35vw;
