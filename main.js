@@ -10,33 +10,34 @@
   유저가 이미 입력한 숫자를 또 입력하면, 알려준다. 기회를 깎지 않는다
 */
 
-let randNum = 0;
-
-let inputNum = document.getElementById('inputNum');
-let reaction = document.getElementById('reaction');
+let randNum = 0; //랜덤으로 뽑을 숫자
+let inputNum = document.getElementById('inputNum'); // 사용자가 입력할 숫자
+let reaction = document.getElementById('reaction'); // 결과에 대한 반응
 let playButton = document.getElementById('playButton');
 let resetButton = document.getElementById('resetButton');
 let shareButton = document.getElementById('shareButton');
 let resultAreaImg = document.querySelector('.main-img');
-let tryCount = 5;
 let chance = document.getElementById('chance');
-let histNum = [];
+let tryCount = 5; // 남은 기회
+let histNum = []; // 사용자가 입력한 숫자들
 
 playButton.addEventListener('click', play);
 resetButton.addEventListener('click', reset);
 shareButton.addEventListener('click', share);
 focusInput = inputNum.addEventListener('focus', function () {
   inputNum.value = '';
-}); //focusin
+}); // 사용자가 입력창 누르면 이전값 지우기
 
 function pickNum() {
+  // 랜덤 숫자 뽑기
   randNum = Math.floor(Math.random() * 100) + 1;
   console.log(randNum);
 }
 function play() {
+  // 숫자 추측하기
   let inputNumValue = inputNum.value;
 
-  console.log(histNum);
+  // console.log(histNum);
 
   if (inputNumValue > 0 && inputNumValue <= 100) {
     if (histNum.includes(inputNumValue)) {
@@ -71,6 +72,7 @@ function play() {
 }
 
 function reset() {
+  // 리셋
   resultAreaImg.src =
     'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnVqcWNhcXhyM2R1YmliaWhiODcwemk5OGpoenZlcHFlN2czMXQ4diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7eAvzJ0SBBzHy/giphy.webp';
   playButton.disabled = false;
@@ -83,6 +85,7 @@ function reset() {
   pickNum();
 }
 function share() {
+  // 공유하기버튼 url 복사
   let url = '';
   let textarea = document.createElement('textarea');
   document.body.appendChild(textarea);
@@ -95,6 +98,3 @@ function share() {
 }
 
 pickNum();
-if (inputNum.focus == true) {
-  console.log('true');
-}
