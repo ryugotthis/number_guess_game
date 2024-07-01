@@ -16,6 +16,7 @@ let inputNum = document.getElementById('inputNum');
 let reaction = document.getElementById('reaction');
 let playButton = document.getElementById('playButton');
 let resetButton = document.getElementById('resetButton');
+let shareButton = document.getElementById('shareButton');
 let resultAreaImg = document.querySelector('.main-img');
 let tryCount = 5;
 let chance = document.getElementById('chance');
@@ -23,6 +24,7 @@ let histNum = [];
 
 playButton.addEventListener('click', play);
 resetButton.addEventListener('click', reset);
+shareButton.addEventListener('click', share);
 focusInput = inputNum.addEventListener('focus', function () {
   inputNum.value = '';
 }); //focusin
@@ -79,6 +81,17 @@ function reset() {
   reaction.textContent = '다시 도전!';
 
   pickNum();
+}
+function share() {
+  let url = '';
+  let textarea = document.createElement('textarea');
+  document.body.appendChild(textarea);
+  url = window.document.location.href;
+  textarea.value = url;
+  textarea.select();
+  document.execCommand('copy');
+  document.body.removeChild(textarea);
+  alert('URL이 복사되었습니다.');
 }
 
 pickNum();

@@ -29,7 +29,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 3vw;
+  font-family: 'Play', sans-serif;
+  font-size: 2vw;
   font-weight: bold;
   color: rgb(156, 53, 200);
 }
@@ -53,9 +54,11 @@ body {
 }
 #reaction {
   margin: 2% 0;
+  font-family: 'Gaegu', sans-serif;
+
   font-size: 3vw;
-  font-weight: 600;
-  color: #303fed;
+  font-weight: 400;
+  color: #30ed7f;
 }
 #resultArea {
   margin-left: 2vw;
@@ -128,12 +131,16 @@ body {
 #yellow-text {
   color: rgb(242, 242, 14);
 }
+.background-right {
+  margin-left: 80%;
+}
 
 @media screen and (max-width: 80rem) {
   .container {
   }
   .page-pretitle {
-    font-size: 7vw;
+    width: 10vw;
+    font-size: 2vw;
   }
   .page-title {
     font-size: 11vw;
