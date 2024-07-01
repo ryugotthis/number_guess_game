@@ -43,6 +43,7 @@ function play() {
   // console.log(histNum);
 
   if (inputNumValue > 0 && inputNumValue <= 100) {
+    histNum.push(inputNumValue);
     if (histNum.includes(inputNumValue)) {
       reaction.textContent = '이미 입력한 숫자입니다';
     } else {
@@ -62,7 +63,6 @@ function play() {
         playButton.disabled = true;
       }
     }
-    histNum.push(inputNumValue);
   } else {
     reaction.textContent = '1~100 사이의 값을 입력해주세요';
   }
