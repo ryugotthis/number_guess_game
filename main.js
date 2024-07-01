@@ -43,12 +43,11 @@ function play() {
   // console.log(histNum);
 
   if (inputNumValue > 0 && inputNumValue <= 100) {
-    histNum.push(inputNumValue);
     if (histNum.includes(inputNumValue)) {
       reaction.textContent = '이미 입력한 숫자입니다';
     } else {
       tryCount--;
-
+      histNum.push(inputNumValue);
       if (inputNumValue > randNum) {
         resultAreaImg.src = 'img/down.webp';
 
